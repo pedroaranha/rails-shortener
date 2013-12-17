@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: short_urls
+  username: Mecer
+  
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: short_urls
+  username: Mecer

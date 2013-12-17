@@ -1,0 +1,33 @@
+<h1>Simple Shortener</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Short URL</th>
+      <th>Original URL</th>
+      <th>Hits</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= root_url+link.short_url %></td>
+        <td><%= link.long_url %></td>
+        <td><%= link.hits %></td>
+        <td><%= link_to link do %><button type="button" class="btn btn-info btn-xs">Visualizar</button><% end %></td>
+        <td><%= link_to edit_link_path(link) do %><button type="button" class="btn btn-warning btn-xs">Editar</button><% end %></td>
+        <td><%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %><button type="button" class="btn btn-danger btn-xs">Apagar</button><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_link_path do %>
+  <button type="button" class="btn btn-success">New</button>
+<% end %>

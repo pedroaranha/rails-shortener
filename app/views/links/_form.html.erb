@@ -1,0 +1,29 @@
+<%= form_for(@link, :html => {:role => :form}) do |f| %>
+  <% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% @link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :long_url, "Original URL" %><br>
+    <%= f.text_field :long_url %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :short_url, "Short URL (Optional)" %><br>
+    <%= f.text_field :short_url %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Save", :class => 'btn btn-success' %>
+
+    <%= link_to links_path do %>
+      <button type="button" class="btn btn-default">Back</button>
+    <% end %>
+  </div>
+<% end %>

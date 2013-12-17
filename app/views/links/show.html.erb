@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>URL Curta:</strong>
+  <%= root_url + @link.short_url %>
+</p>
+
+<p>
+  <strong>URL Original:</strong>
+  <%= @link.long_url %>
+</p>
+
+<p>
+  <strong>Hits:</strong>
+  <%= @link.hits %>
+</p>
+
+<%= link_to edit_link_path(@link) do %>
+  <button type="button" class="btn btn-warning">Edit</button>
+<% end %>
+<%= link_to links_path do %>
+  <button type="button" class="btn btn-default">Back</button>
+<% end %>
